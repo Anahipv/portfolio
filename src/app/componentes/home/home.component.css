@@ -1,0 +1,47 @@
+.hiragana {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 100px;
+}
+.presentacion span,
+.presentacion {
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-size: 100px;
+}
+
+.menu {
+    text-decoration: none;
+    font-size: 50px;
+}
+
+a {
+    color: rgb(165, 18, 50);
+    text-decoration: none;
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(165, 18, 50);
+}
+
+.container {
+    text-align: center;
+    align-content: flex-end;
+    padding-top: 65px;
+}
+
+.navbar {
+    background-color: rgb(175, 128, 137);
+    opacity: 50%;
+    font-weight: bold;
+    height: 60px;
+    align-content: center;
+}
+
+.nav-item {
+    padding-right: 20px;
+}
+
+p a {
+    padding-right: 20px;
+}
+
