@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgsRevealModule } from 'ngx-scrollreveal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,8 @@ import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgsRevealModule
   ],
   providers: [],
   bootstrap: [AppComponent]
