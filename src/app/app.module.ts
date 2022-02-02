@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component';
+import { EdcucacionComponent } from './edcucacion/edcucacion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SobreMiComponent
+    SobreMiComponent,
+    EdcucacionComponent
   ],
   imports: [
     BrowserModule,
