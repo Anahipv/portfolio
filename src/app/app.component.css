@@ -1,0 +1,15 @@
+.navbar {
+    background-color: rgb(212, 152, 162);
+    opacity: 50%;
+    font-weight: bold;
+    height: 60px;
+    align-content: center;
+}
+
+.nav-item {
+    padding-right: 20px;
+}
+
+.btn {
+    background-color: rgb(223, 206, 210);
+}

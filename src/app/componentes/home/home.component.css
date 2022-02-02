@@ -13,35 +13,15 @@
     font-size: 50px;
 }
 
-a {
-    color: rgb(165, 18, 50);
-    text-decoration: none;
-}
-
-* {
-    font-family: 'Nunito', sans-serif;
-    color: rgb(165, 18, 50);
-}
-
 .container {
     text-align: center;
     align-content: flex-end;
     padding-top: 65px;
-}
-
-.navbar {
-    background-color: rgb(175, 128, 137);
-    opacity: 50%;
-    font-weight: bold;
-    height: 60px;
-    align-content: center;
-}
-
-.nav-item {
-    padding-right: 20px;
+    padding-bottom: 100px;
 }
 
 p a {
     padding-right: 20px;
 }
+
 
