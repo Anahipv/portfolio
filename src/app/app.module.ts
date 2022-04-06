@@ -6,16 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component';
-import { EdcucacionComponent } from './edcucacion/edcucacion.component';
+import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
+import { SkillsComponent } from './componentes/skills/skills.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SobreMiComponent,
-    EdcucacionComponent,
-    ProyectosComponent
+    EducacionComponent,
+    ProyectosComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,
