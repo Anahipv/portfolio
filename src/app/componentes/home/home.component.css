@@ -1,27 +1,15 @@
-p a {
-    padding-right: 20px;
+div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
 }
-
-.lila:hover {
-    color: #b087f1;
-    font-size: 35px;
-}
-.celeste:hover {
-    color: #6dbbc4;
-    font-size: 35px;
-}
-.verde:hover {
-    color: #89ce9c;
-    font-size: 35px;
-}
-.amarillo:hover {
-    color: #e9e27e;
-    font-size: 35px;
-}
-
 .hiragana {
+    color: rgb(165, 18, 50);
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 100px;
+    font-size: 600%;
+    margin-bottom: 5%;
 }
 
 .animate__animated {
@@ -30,20 +18,10 @@ p a {
 
 .presentacion {
     font-family: 'Baloo Bhaijaan 2', cursive;
-    font-size: 100px;
+    font-size: 600%;
+    color: #eeaec8;
 }
 
-.menu {
-    text-decoration: none;
-    font-size: 30px;
-}
-
-.container {
-    text-align: center;
-    align-content: flex-end;
-    padding-top: 65px;
-    padding-bottom: 110px;
-}
 
 
 
