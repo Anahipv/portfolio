@@ -1,31 +1,12 @@
-<nav class="navbar fixed-top">
-    <div class="container-fluid">
-        <span class="navbar-brand">
-            <img src="/assets/img/APLogo-20-20.png" alt="Argentina Programa - icono" width="110px" height="75px" class="align-text-center">
-            Argentina Programa - #YoProgramo
-        </span>
-        <div class="d-flex">
-            <div class="nav-item">
-                <a href="https://github.com/Anahipv">
-                    <i class="fab fa-github" style="font-size: 30px;" alt="Github" title="Ir a Github"></i>
-                </a>
-            </div>
-            <div class="nav-item">
-                <a href="https://www.linkedin.com/in/anpvalenzuela/">
-                    <i class="fab fa-linkedin" style="font-size: 30px;" alt="Linkedin" title="Ir a Linkedin"></i>
-                </a>
-            </div>
-            <div class="nav-item">
-                <button class="btn btn-outline btn-sm" title="Inicia sesion para editar">Login <i class="fas fa-magic"></i></button>
-            </div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8" style="height: 100vh">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="col-4" style="height: 100vh;">
+            <app-sidebar></app-sidebar>
         </div>
     </div>
-</nav>
-
-    <!-- <app-home></app-home>
-    <app-sobre-mi></app-sobre-mi>
-    <app-educacion></app-educacion>
-    <app-proyectos></app-proyectos> -->
-<router-outlet></router-outlet>
-
+</div>
 

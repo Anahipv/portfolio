@@ -8,6 +8,7 @@ import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'sobre-mi', component: SobreMiComponent},
   {path: 'edu-exp', component: EducacionComponent},
   {path: 'proyectos', component: ProyectosComponent},
