@@ -1,35 +1,102 @@
 
+
 <div class="sidebar">
-    <div class="sidebar-top">
-        <span>
-            <img src="/assets/img/APLogo-20-20.png" alt="Argentina Programa - icono" width="120px" height="75px" class="align-text-center">
-        </span>
-        <span>
-            #YoProgramo
-        </span>
+     <div class="sidebar-top">
+        <div>
+            <img src="/assets/img/APLogo-20-20.png" alt="Argentina Programa - icono" id= "ap">
+        </div>
+        <div>#YoProgramo</div>
     </div>
-    <div>
-        <img src="/assets/img/2020 anahi.jpg" width="40%" height="40%" alt="Ilustracion sobre mi" id="ilustracion">
-        <h2>Jr. Developer</h2>
-        <ul class="menu">
-            <li><a routerLink="/home" class="rosa">Home</a></li>
-            <li><a routerLink="/sobre-mi" class="lila">Sobre mí </a></li>
-            <li><a routerLink="/edu-exp" class="celeste">Educación / Experiencia</a></li>
-            <li><a routerLink="/proyectos" class="verde">Proyectos</a></li>
-            <li><a routerLink="/skills" class="amarillo">Skills</a></li>
-        </ul>
-        <div class="sidebar-bottom">
-            <div style="width: 30%;">
-                <a href="https://github.com/Anahipv" class="redes">
-                    <i class="fab fa-github" style="font-size: 35px;" alt="Github" title="Ir a Github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/anpvalenzuela/">
-                    <i class="fab fa-linkedin" style="font-size: 35px;" alt="Linkedin" title="Ir a Linkedin"></i>
-                </a>
+    <img src="/assets/img/2020 anahi.jpg" width="60%" height="30%" alt="Ilustracion sobre mi" id="ilustracion">
+    <h2>Jr. Developer</h2>
+                <!-- <div class="menu">
+                    <span><a routerLink="/home" class="rosa">Home</a></span>
+                    <span><a routerLink="/sobre-mi" class="lila">Sobre mí </a></span>
+                    <span><a routerLink="/edu-exp" class="celeste">Educación / Experiencia</a></span>
+                    <span><a routerLink="/proyectos" class="verde">Proyectos</a></span>
+                    <span><a routerLink="/skills" class="amarillo">Skills</a></span>
+                </div> -->
+    <div class="navbar-expand-lg sidebar-menu">
+        <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <div class="menu">
+                <span><a routerLink="/home" class="rosa">Home</a></span>
+                <span><a routerLink="/sobre-mi" class="lila">Sobre mí </a></span>
+                <span><a routerLink="/edu-exp" class="celeste">Educación / Experiencia</a></span>
+                <span><a routerLink="/proyectos" class="verde">Proyectos</a></span>
+                <span><a routerLink="/skills" class="amarillo">Skills</a></span>
             </div>
-            <button class="btn btn-m" title="Inicia sesion para editar">Login <i class="fas fa-magic"></i></button>    
+            <!-- <div class="sidebar-bottom">
+                <div class="redes">
+                    <div style="margin-right: 15%;">
+                        <a href="https://github.com/Anahipv">
+                            <i class="fab fa-github" style="font-size: 35px;" alt="Github" title="Ir a Github"></i> 
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://www.linkedin.com/in/anpvalenzuela/">
+                            <i class="fab fa-linkedin" style="font-size: 35px;" alt="Linkedin" title="Ir a Linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Inicia sesion para editar">Log in <i class="fas fa-magic"></i></button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" >
+                        <div class="modal-content">
+                            <div class="modal-top">
+                                <div>
+                                    <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">\(o^w^o)/</h5>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <app-login></app-login>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  -->
         </div>
     </div>
+    <div class="sidebar-bottom">
+        <div class="redes">
+            <div style="margin-right: 15%;">
+                <a href="https://github.com/Anahipv">
+                    <i class="fab fa-github" alt="Github" title="Ir a Github"></i> 
+                </a>
+            </div>
+            <div>
+                <a href="https://www.linkedin.com/in/anpvalenzuela/">
+                    <i class="fab fa-linkedin" alt="Linkedin" title="Ir a Linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Inicia sesion para editar">Log in <i class="fas fa-magic"></i></button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" >
+                <div class="modal-content">
+                    <div class="modal-top">
+                        <div>
+                            <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">\(o^w^o)/</h5>
+                        </div>
+                        <div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <app-login></app-login>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
 </div>
+
+
+
 
 

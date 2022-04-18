@@ -9,7 +9,32 @@ div {
 }
 
 p {
-    font-size: 30px;
+    font-size: 200%;
     color: #c1b3d6;
     font-weight: bold;
+}
+
+@media (max-width: 1300px){
+
+    div {
+        margin-top: 5%;
+    }
+}
+
+@media (max-width: 800px) {
+
+    div {
+        margin-top: 15%;
+    }
+
+    p {
+        font-size: 150%;
+    }
+}
+
+@media (max-width: 430px) {
+
+    p {
+        font-size: 100%;
+    }
 }
