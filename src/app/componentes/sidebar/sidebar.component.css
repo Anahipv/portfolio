@@ -2,19 +2,15 @@
     color: rgb(165, 18, 50);
 }
 
-ul {
-    list-style: none;
-}
-
-span {
-    font-size: 20px;
+.sidebar-top div{
+    font-size: 100%;
     font-weight: bold;
 }
 
 h2 {
     font-weight: bold;
     margin-left: 5%;
-    margin-top: 5px;
+    margin-top: 5%;
 }
 
 .sidebar {
@@ -25,10 +21,14 @@ h2 {
 
 .sidebar-top {
     display: flex; 
-    justify-content: space-between; 
     align-items: center;
+    margin-left: -20%;
     padding-right: 3%;
     margin-bottom: 5%;
+}
+
+#ap {
+    width: 40%;
 }
 
 .sidebar-bottom {
@@ -40,24 +40,20 @@ h2 {
 }
 
 .redes {
-    padding-right: 10%;
+    display: flex;
+}
+
+.sidebar-menu {
+    padding-left: 13%;
 }
 
 .menu {
     margin-top: 5%;
     margin-bottom: 15%;
     text-decoration: none;
-    font-size: 30px;
-}
-
-.btn{
-    color: rgb(165, 18, 50);
-    border: 2px solid rgb(165, 18, 50);
-    border-radius: 3px;
-}
-
-.btn:hover {
-    background-color: #eeaec8;
+    font-size: 180%;
+    display: flex;
+    flex-direction: column;
 }
 
 .rosa {
@@ -82,27 +78,217 @@ h2 {
 
 .rosa:hover {
     color: rgb(165, 18, 50);
-    font-size: 35px;
+    font-size: 110%;
 }
 
 .lila:hover {
     color: #a57ce7;
-    font-size: 35px;
+    font-size: 110%;
 }
 .celeste:hover {
     color: #509ba3;
-    font-size: 35px;
+    font-size: 110%;
 }
 .verde:hover {
     color: #70b684;
-    font-size: 35px;
+    font-size: 110%;
 }
 .amarillo:hover {
     color: #d3cc6d;
-    font-size: 35px;
+    font-size: 110%;
 }
 
 #ilustracion {
     clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
     margin-left: 5%;
 }
+
+.fab {
+    font-size: 2.5em;
+}
+
+.modal-content {
+    background-color: rgba(241, 205, 220, 0.7);
+}
+
+div.modal-content div.modal-top {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    padding-left: 2%; 
+    padding-right: 2%;
+}
+
+@media (max-width: 1300px){
+
+    .sidebar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 70%;
+        margin-top: 5%;
+    }
+
+    h2, #ilustracion {
+        display: none;
+    }
+
+    .menu {
+        flex-direction: row;
+        font-size: 120%;
+        margin-top: 15%;
+        width: 100%;
+    }
+
+    .menu span {
+        margin-left: 5%;
+    }
+
+    .sidebar-menu {
+        width: 50%;
+        padding-left: 0%;
+    }
+
+    .sidebar-bottom {
+        padding-right: 2%;
+        padding-left: 2%;
+        width: 20%;
+    }
+
+    .redes {
+        margin-right: 15%;
+    }
+
+    .sidebar-top {
+        margin-bottom: 0%;
+        width: 20%;
+        margin-left: 0%;
+    }
+
+    #ap {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1006px){
+
+    .sidebar-bottom {
+        width: 40%;
+    }
+
+    .sidebar-menu {
+        position: relative;
+        transform: translateY(50%);
+        margin-top: -3%;
+    }
+
+    .menu {
+        width: 200%;
+        margin-left: -50%;
+        font-weight: bold;
+    }
+
+    .sidebar-top {
+        margin-left: 5%;
+        width: 30%;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        justify-content: flex-start;
+    }
+
+    .sidebar-top {
+        width: 30%;
+        /* flex-direction: column; */
+        margin-right: 0%;
+    }
+
+    /* .sidebar-bottom {
+        flex-direction: column;
+    } */
+
+    .menu {
+        /* margin-left: -100%;
+        font-size: 85%; */
+    }
+
+    .sidebar-menu {
+        width: 25%;
+    }
+
+    .fab {
+        font-size: 2em;
+        margin-bottom: 5%;
+    }
+
+    #ap {
+        width: 100%;
+    }
+}
+
+@media (max-width: 430px) {
+    .sidebar-bottom {
+        flex-direction: column;
+        width: 40%;
+    }
+
+    .sidebar-menu {
+        position: relative;
+        transform: translateY(50%);
+        margin-top: -3%;
+    }
+
+    .menu {
+        margin-left: -100%;
+        font-size: 85%;
+    }
+
+    .sidebar-top {
+        flex-direction: column;
+        margin-left: 5%;
+        width: 30%;
+    }
+
+    #ap {
+        width: 70%;
+    }
+}
+/* 
+@media (max-width: 800px) {
+
+    .sidebar {
+        justify-content: flex-start;
+    }
+
+    .sidebar-top {
+        width: 30%;
+        flex-direction: column;
+        margin-right: 0%;
+    }
+
+    .sidebar-bottom {
+        flex-direction: column;
+    }
+
+    .menu {
+        margin-left: -100%;
+        font-size: 85%;
+    }
+
+    .sidebar-menu {
+        width: 25%;
+    }
+
+    .fab {
+        font-size: 2em;
+        margin-bottom: 5%;
+    }
+
+    #ap {
+        width: 50%;
+    }
+
+} */
