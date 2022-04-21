@@ -1,33 +1,10 @@
 <div class="container">
     <div class="row">
-        <div class="col-4">
-            <a href="https://github.com/Anahipv/task-list" title="ver en Github"><img src="/assets/img/tasklist.jpg" alt="imagen del proyecto"></a>
-            <ul>
-                <li>Typescript</li>
-                <li>HTML</li>
-                <li>CSS</li>
-            </ul>
-            <a href="https://github.com/Anahipv/task-list" title="ver en Github"><h4>My Task List</h4></a>
-            <p>Objetivo: aprender el funcionamiento de componentes y servicios de Angular. Ademas de como consumir datos de una base datos ficticia en Json</p> 
-        </div>
-        <div class="col-4">
-            <a href="https://github.com/Anahipv/wheather-app" title="ver en Github"><img src="/assets/img/weatherapp.jpg" alt="Ilustracion sobre mi"></a> 
-            <ul>
-                <li>Typescript</li>
-                <li>HTML</li>
-                <li>CSS</li>
-            </ul>
-            <a href="https://github.com/Anahipv/wheather-app" title="ver en Github"><h4>Weather App</h4></a>
-            <p>Objetivo: aprender como consumir datos de una API, y seguir interiorizandome en Angular</p> 
-        </div>
-        <div class="col-4">
-            <a href="https://github.com/Anahipv/news-portal" title="ver en Github"><img src="/assets/img/newsportal.jpg" alt="Ilustracion sobre mi"></a> 
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-            </ul>
-            <a href="https://github.com/Anahipv/news-portal" title="ver en Github"><h4>News Portal</h4></a>
-                <p>Objetivo: aprender etiquetas de HTML y su correcta disposición dentro de un sitio web. Ademas interiorizarme en el manejo de estilos con CSS</p> 
+        <div class="col-4" *ngFor="let proyecto of proyectos">
+            <a href={{proyecto.pUrl}} title="ver en Github"><img src={{proyecto.pImage}} alt="imagen del proyecto"></a>
+            <p class="tecnologias">{{proyecto.tecnologias}}</p>
+            <a href={{proyecto.pUrl}} title="ver en Github"><h4>{{proyecto.pName}}</h4></a>
+            <p>Objetivo: {{proyecto.descripcion}}</p> 
         </div>
     </div>
 </div>

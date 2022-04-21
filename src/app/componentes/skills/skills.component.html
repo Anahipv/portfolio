@@ -3,42 +3,15 @@
     <div class="row">
         <div class="col-6 left">
             <h3>Skills</h3>
-            <div>
-                <h5>HTML</h5>
-            </div>
-            <div>
-                <h5>CSS</h5>
-            </div>
-            <div>
-                <h5>Bootstrap</h5>
-            </div>
-            <div>
-                <h5>Angular</h5>
-            </div>
-            <div>
-                <h5>MySQL</h5>
-            </div>
-            <div>
-                <h5>Java</h5>
+            <div *ngFor="let skill of skills">
+                <h5>{{skill?.tecnologia}}</h5>
             </div>
         </div>
         <div class="col-6 right">
             <h3>Idiomas</h3>
-            <div>
-                <h5>Español</h5>
-                <h6>-- Nativo --</h6>
-            </div>
-            <div>
-                <h5>Inglés</h5>
-                <h6>-- Beginner --</h6>
-            </div>
-            <div>
-                <h5>Francés</h5>
-                <h6>-- Elemental --</h6>
-            </div>
-            <div>
-                <h5>Japonés</h5>
-                <h6>-- Elemental --</h6>
+            <div *ngFor="let idioma of idiomas">
+                <h5>{{idioma?.idioma}}</h5>
+                <h6>-- {{idioma?.nivel}} --</h6>
             </div>
         </div>
     </div>
