@@ -2,11 +2,6 @@ h4 {
     font-weight: bold;
 }
 
-ul {
-    margin-left: -10%;
-    margin-top: 5%;
-}
-
 a {
     color: rgb(1, 10, 4);
 }
@@ -14,6 +9,11 @@ a {
 img {
     width: 60%;
     height: 40%;
+}
+
+.tecnologias {
+    font-weight: bold;
+    margin-top: 10%;
 }
 
 .container {
