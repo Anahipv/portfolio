@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Proyecto } from 'src/app/interfaces/iproyecto';
-import { ProyectoService } from 'src/app/servicios/proyectos/proyecto.service';
+import { TraerInfoService } from 'src/app/servicios/traer-info.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -10,8 +10,9 @@ import { ProyectoService } from 'src/app/servicios/proyectos/proyecto.service';
 })
 export class ProyectosComponent implements OnInit {
   public proyectos!: Proyecto[];
+  public pathComponent : String = "proyectos";
 
-  constructor(private proyectosService: ProyectoService) { 
+  constructor( private infoService : TraerInfoService ) { 
 
   }
 
@@ -20,7 +21,7 @@ export class ProyectosComponent implements OnInit {
   }
 
   public getProyectos(): any {
-    this.proyectosService.getProyectos().subscribe({
+    this.infoService.getInfo(this.pathComponent).subscribe({
       next: (response: Proyecto[]) => 
         (this.proyectos = response),
       

@@ -2,8 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/interfaces/ieducacion';
 import { ExpLaboral } from 'src/app/interfaces/iexplaboral';
-import { EducacionService } from 'src/app/servicios/educuacion.service/educacion.service';
-import { ExplaboralService } from 'src/app/servicios/explaboral/explaboral.service';
+import { TraerInfoService } from 'src/app/servicios/traer-info.service';
 
 @Component({
   selector: 'app-educacion',
@@ -13,11 +12,10 @@ import { ExplaboralService } from 'src/app/servicios/explaboral/explaboral.servi
 export class EducacionComponent implements OnInit {
   public edus!: Educacion[];
   public explaborales!: ExpLaboral[];
+  public pathEdu : String = "educacion";
+  public pathExp : String  = "explaboral";
 
-  constructor(
-    private edusService: EducacionService,
-    private expLabService: ExplaboralService
-    ) { 
+  constructor( private infoService : TraerInfoService ) { 
 
   }
 
@@ -27,7 +25,7 @@ export class EducacionComponent implements OnInit {
   }
 
   public getEducaciones(): any {
-    this.edusService.getEducaciones().subscribe({
+    this.infoService.getInfo(this.pathEdu).subscribe({
       next: (response: Educacion[]) => 
         (this.edus = response),
       
@@ -37,7 +35,7 @@ export class EducacionComponent implements OnInit {
   }
 
   public getExpLaborales(): any {
-    this.expLabService.getExpLaborales().subscribe({
+    this.infoService.getInfo(this.pathExp).subscribe({
       next: (response: ExpLaboral[]) => 
         (this.explaborales = response),
       

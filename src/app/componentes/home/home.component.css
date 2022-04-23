@@ -32,6 +32,10 @@ h2 {
 .img {
     display: none;
 }
+
+.footer {
+    display: none;
+}
 /* ---------- */
 @media (max-width: 1300px){
 
@@ -79,6 +83,26 @@ h2 {
     .presentacion {
         font-size: 400%;
     }
+}
+
+@media (max-width: 550px) {
+    
+    .footer{
+        display: flex; 
+        align-items: center;
+        padding-right: 3%;
+        margin-left: 0%;
+        margin-right: 0%;
+        height: 5%;
+        background-color:  rgba(0, 0, 0, 0.5);
+        color: rgb(165, 18, 50);
+        margin-top: 10%;
+    }
+
+    #ap {
+        width: 30%;
+    }
+    
 }
 
 @media (max-width: 430px) {

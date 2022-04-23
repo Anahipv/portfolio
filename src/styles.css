@@ -24,3 +24,7 @@ input {
 .btn:hover {
     background-color: #eeaec8;
 }
+
+.btn:focus, .btn:active{
+    box-shadow: none;
+}

@@ -33,7 +33,7 @@ h2 {
 
 .sidebar-bottom {
     display: flex; 
-    justify-content: space-between; 
+    justify-content: space-around; 
     align-items: center;
     padding-left: 10%;
     padding-right: 10%;
@@ -155,10 +155,6 @@ div.modal-content div.modal-top {
         width: 20%;
     }
 
-    .redes {
-        margin-right: 15%;
-    }
-
     .sidebar-top {
         margin-bottom: 0%;
         width: 20%;
@@ -202,21 +198,15 @@ div.modal-content div.modal-top {
 
     .sidebar-top {
         width: 30%;
-        /* flex-direction: column; */
         margin-right: 0%;
-    }
-
-    /* .sidebar-bottom {
-        flex-direction: column;
-    } */
-
-    .menu {
-        /* margin-left: -100%;
-        font-size: 85%; */
     }
 
     .sidebar-menu {
         width: 25%;
+    }
+
+    .menu {
+        margin-left: -80%;
     }
 
     .fab {
@@ -229,66 +219,36 @@ div.modal-content div.modal-top {
     }
 }
 
-@media (max-width: 430px) {
-    .sidebar-bottom {
-        flex-direction: column;
-        width: 40%;
-    }
-
-    .sidebar-menu {
-        position: relative;
-        transform: translateY(50%);
-        margin-top: -3%;
-    }
-
-    .menu {
-        margin-left: -100%;
-        font-size: 85%;
-    }
-
-    .sidebar-top {
-        flex-direction: column;
-        margin-left: 5%;
-        width: 30%;
-    }
-
-    #ap {
-        width: 70%;
-    }
-}
-/* 
-@media (max-width: 800px) {
+@media (max-width: 550px) {
 
     .sidebar {
-        justify-content: flex-start;
+        justify-content: space-between;
+        height: 60%;
     }
 
     .sidebar-top {
-        width: 30%;
-        flex-direction: column;
-        margin-right: 0%;
-    }
-
-    .sidebar-bottom {
-        flex-direction: column;
-    }
-
-    .menu {
-        margin-left: -100%;
-        font-size: 85%;
+        display: none;
     }
 
     .sidebar-menu {
-        width: 25%;
+        margin-left: -40%;
+        margin-top: -5%;
     }
 
-    .fab {
-        font-size: 2em;
-        margin-bottom: 5%;
+    .menu {
+        margin-left: 10%;
     }
 
-    #ap {
-        width: 50%;
+    .sidebar-bottom {
+        justify-content: space-around; 
+    }
+    
+}
+
+@media (max-width: 430px) {
+
+    .menu {
+        font-size: 95%;
     }
 
-} */
+}
