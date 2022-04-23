@@ -13,10 +13,7 @@ import { SidebarComponent } from './componentes/sidebar/sidebar.component';
 import { LoginComponent } from './componentes/login/login.component';
 
 import { FormsModule } from '@angular/forms';
-import { PersonaService } from './servicios/persona.service/persona.service';
-import { EducacionService } from './servicios/educuacion.service/educacion.service';
-import { ExplaboralService } from './servicios/explaboral/explaboral.service';
-import { SkillService } from './servicios/skills/skill.service';
+import { TraerInfoService } from './servicios/traer-info.service';
 
 
 @NgModule({
@@ -37,10 +34,7 @@ import { SkillService } from './servicios/skills/skill.service';
     FormsModule
   ],
   providers: [
-    PersonaService,
-    EducacionService,
-    ExplaboralService,
-    SkillService
+    TraerInfoService
   ],
   bootstrap: [AppComponent]
 })

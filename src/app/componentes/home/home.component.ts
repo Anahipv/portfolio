@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/interfaces/ipersona';
-import { PersonaService } from 'src/app/servicios/persona.service/persona.service';
+import { TraerInfoService } from 'src/app/servicios/traer-info.service';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +10,9 @@ import { PersonaService } from 'src/app/servicios/persona.service/persona.servic
 })
 export class HomeComponent implements OnInit {
   public personas!: Persona[];
+  public pathComponent : String = "home";
 
-  constructor(private personasService: PersonaService) { 
+  constructor( private infoService : TraerInfoService ) { 
 
   }
 
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   public getPersonas(): any {
-    this.personasService.getPersonas().subscribe({
+    this.infoService.getInfo(this.pathComponent).subscribe({
       next: (response: Persona[]) => 
         (this.personas = response),
       

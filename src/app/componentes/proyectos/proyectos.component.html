@@ -1,4 +1,17 @@
-<div class="container">
+<div class="container" >
+        <div class="proyecto" *ngFor="let proyecto of proyectos">
+            <div class="imagen">
+                <a href={{proyecto.pUrl}} title="ver en Github"><img src={{proyecto.pImage}} alt="imagen del proyecto"></a>
+            </div>
+            <div class="contenido">
+                <p class="tecnologias">{{proyecto.tecnologias}}</p>
+                <a href={{proyecto.pUrl}} title="ver en Github"><h4>{{proyecto.pName}}</h4></a>
+                <p>Objetivo: {{proyecto.descripcion}}</p> 
+            </div>
+        </div>
+</div>
+
+<!-- <div class="container">
     <div class="row">
         <div class="col-4" *ngFor="let proyecto of proyectos">
             <a href={{proyecto.pUrl}} title="ver en Github"><img src={{proyecto.pImage}} alt="imagen del proyecto"></a>
@@ -7,5 +20,5 @@
             <p>Objetivo: {{proyecto.descripcion}}</p> 
         </div>
     </div>
-</div>
+</div> -->
 
