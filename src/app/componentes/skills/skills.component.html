@@ -2,16 +2,172 @@
 <div class="container">
     <div class="row">
         <div class="col-6 left">
-            <h3>Skills</h3>
+            <h3><button class="btn left" data-bs-toggle="modal" data-bs-target="#addmodalSkills" title="Agregar Skill"><i class="fa-solid fa-heart-circle-plus"></i></button>
+                Skills</h3>
             <div *ngFor="let skill of skills">
                 <h5>{{skill?.tecnologia}}</h5>
+                <button (click)="setInfo(skill)" class="btn left" data-bs-toggle="modal" data-bs-target="#deletemodalSkills" title="Eliminar Skill"><i class="fa-regular fa-circle-xmark"></i></button>
+                <button (click)="setInfo(skill)" class="btn left" data-bs-toggle="modal" data-bs-target="#editmodalSkills" title="Editar Skill"><i class="fa-regular fa-pen-to-square"></i></button>
             </div>
         </div>
         <div class="col-6 right">
-            <h3>Idiomas</h3>
+            <h3>Idiomas <button class="btn right" data-bs-toggle="modal" data-bs-target="#addmodalIdiomas" title="Agregar Idioma"><i class="fa-solid fa-heart-circle-plus"></i></button></h3>
             <div *ngFor="let idioma of idiomas">
                 <h5>{{idioma?.idioma}}</h5>
                 <h6>-- {{idioma?.nivel}} --</h6>
+                <button (click)="setInfo(idioma)" class="btn right" data-bs-toggle="modal" data-bs-target="#deletemodalIdiomas" title="Eliminar Idioma"><i class="fa-regular fa-circle-xmark"></i></button>
+                <button (click)="setInfo(idioma)" class="btn right" data-bs-toggle="modal" data-bs-target="#editmodalIdiomas" title="Editar Idioma"><i class="fa-regular fa-pen-to-square"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal add skills -->
+    <div class="modal fade" id="addmodalSkills" tabindex="-1" aria-labelledby="addmodalSkillsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content m-left">
+                <div class="modal-top">
+                    <div>
+                        <h5 class="modal-title" id="addmodalSkillsLabel" style="font-weight: bold;">(*^*)</h5>
+                    </div>
+                    <div>
+                        <button type="button" class="btn left" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form #addFormSkill="ngForm" (ngSubmit)="addSkills(addFormSkill)">
+                        <div class="form-group">
+                            <label for="tecnologia">Skill: </label>
+                            <input type="text" ngModel name="tecnologia" class="form-control" id="tecnologia" placeholder="Agrega tu skill" required>
+                        </div>
+                        <button class="btn left" [disabled]="addFormSkill.invalid" type="submit" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-check"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal edit skills -->
+    <div class="modal fade" id="editmodalSkills" tabindex="-1" aria-labelledby="editmodalSkillsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+                <div class="modal-top">
+                    <div>
+                        <h5 class="modal-title" id="editmodalSkillsLabel" style="font-weight: bold;">(*^*)</h5>
+                     </div>
+                    <div>
+                        <button type="button" class="btn left" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form #editFormSkill="ngForm">
+                        <div class="form-group">
+                            <label for="tecnologia">Skill: </label>
+                            <input type="text" ngModel="{{edit?.tecnologia}}" name="tecnologia" class="form-control" id="tecnologia" placeholder="Agrega tu skill">
+                        </div>
+                        <input type="hidden" ngModel="{{edit?.id}}" name="id" class="form-control" id="id">
+                        <button (click)="editSkills(editFormSkill.value)" class="btn left" type="submit" data-bs-dismiss="modal" aria-label="Close">Guardar cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal delete skills -->
+    <div class="modal fade" id="deletemodalSkills" tabindex="-1" aria-labelledby="deletemodalSkillsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+                <div class="modal-top">
+                    <div>
+                        <h5 class="modal-title" id="deletemodalSkillsLabel" style="font-weight: bold;">(*^*)</h5>
+                    </div>
+                    <div>
+                        <button type="button" class="btn left" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h1>(X.X)</h1>
+                    <h4>Estas seguro que deseas eliminar {{edit?.tecnologia}}?</h4>
+                    <button (click)="deleteSkills(edit?.id)" class="btn left" type="submit" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-heart-crack"></i> SI, ELIMINAR <i class="fa-solid fa-heart-crack"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal add idiomas -->
+    <div class="modal fade" id="addmodalIdiomas" tabindex="-1" aria-labelledby="addmodalIdiomasLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+                <div class="modal-top">
+                    <div>
+                        <h5 class="modal-title" id="addmodalIdiomasLabel" style="font-weight: bold;">(@_@)</h5>
+                    </div>
+                    <div>
+                        <button type="button" class="btn right" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form #addFormIdioma="ngForm" (ngSubmit)="addIdiomas(addFormIdioma)">
+                        <div class="form-group">
+                            <label for="idioma">Idioma: </label>
+                            <input type="text" ngModel name="idioma" class="form-control" id="idioma" placeholder="Agrega un idioma" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nivel">Nivel: </label>
+                            <input type="text" ngModel name="nivel" class="form-control" id="nivel" placeholder="Especifica tu nivel" required>
+                        </div>
+                        <button class="btn right" [disabled]="addFormIdioma.invalid" type="submit" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-check"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal edit idiomas -->
+    <div class="modal fade" id="editmodalIdiomas" tabindex="-1" aria-labelledby="editmodalIdiomasLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+                <div class="modal-top">
+                    <div>
+                        <h5 class="modal-title" id="editmodalIdiomasLabel" style="font-weight: bold;">(@_@)</h5>
+                     </div>
+                    <div>
+                        <button type="button" class="btn right" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form #editFormIdioma="ngForm">
+                        <div class="form-group">
+                            <label for="idioma">Idioma: </label>
+                            <input type="text" ngModel="{{edit?.idioma}}" name="idioma" class="form-control" id="idioma" placeholder="Agrega un idioma">
+                        </div>
+                        <div class="form-group">
+                            <label for="nivel">Nivel: </label>
+                            <input type="text" ngModel="{{edit?.nivel}}" name="nivel" class="form-control" id="nivel" placeholder="Especifica tu nivel">
+                        </div>
+                        <input type="hidden" ngModel="{{edit?.id}}" name="id" class="form-control" id="id">
+                        <button (click)="editIdiomas(editFormIdioma.value)" class="btn right" type="submit" data-bs-dismiss="modal" aria-label="Close">Guardar cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal delete idiomas -->
+    <div class="modal fade" id="deletemodalIdiomas" tabindex="-1" aria-labelledby="deletemodalIdiomasLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+                <div class="modal-top">
+                    <div>
+                        <h5 class="modal-title" id="deletemodalIdiomasLabel" style="font-weight: bold;">(@_@)</h5>
+                    </div>
+                    <div>
+                        <button type="button" class="btn right" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h1>(X.X)</h1>
+                    <h4>Estas seguro que deseas eliminar {{edit?.idioma}}?</h4>
+                    <button (click)="deleteIdiomas(edit?.id)" class="btn right" type="submit" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-heart-crack"></i> SI, ELIMINAR <i class="fa-solid fa-heart-crack"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

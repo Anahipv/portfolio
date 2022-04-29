@@ -111,14 +111,6 @@ h2 {
     background-color: rgba(241, 205, 220, 0.7);
 }
 
-div.modal-content div.modal-top {
-    display: flex; 
-    flex-direction: row; 
-    justify-content: space-between; 
-    padding-left: 2%; 
-    padding-right: 2%;
-}
-
 @media (max-width: 1300px){
 
     .sidebar {

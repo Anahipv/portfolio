@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Idioma } from 'src/app/interfaces/iidioma';
 import { Skill } from 'src/app/interfaces/iskill';
 import { TraerInfoService } from 'src/app/servicios/traer-info.service';
@@ -14,6 +15,7 @@ export class SkillsComponent implements OnInit {
   public idiomas!: Idioma[];
   public pathSkills : String = "skills";
   public pathIdiomas : String  = "idioma";
+  public edit : any;
 
   constructor( private infoService : TraerInfoService ) { 
 
@@ -34,6 +36,39 @@ export class SkillsComponent implements OnInit {
     })
   }
 
+  public addSkills(addFormSkill: NgForm): void {
+    this.infoService.addInfo(this.pathSkills, addFormSkill.value ).subscribe({
+      next: () => {
+        this.getSkills();
+        addFormSkill.reset();
+      },
+      error: (error: HttpErrorResponse) => {
+        (alert(error.message));
+        addFormSkill.reset();
+      }
+    })
+  }
+
+  public editSkills(skills: Skill): void {
+    this.infoService.editInfo(this.pathSkills, skills ).subscribe({
+      next: () => this.getSkills(),
+
+      error: (error: HttpErrorResponse) => {
+        (alert(error.message))
+      }
+    })
+  }
+
+  public deleteSkills(skillId: number): void {
+    this.infoService.deleteInfo(this.pathSkills, skillId ).subscribe({
+      next: () => this.getSkills(),
+
+      error: (error: HttpErrorResponse) => {
+        (alert(error.message))
+      }
+    })
+  }
+
   public getIdiomas(): any {
     this.infoService.getInfo(this.pathIdiomas).subscribe({
       next: (response: Idioma[]) => 
@@ -42,6 +77,43 @@ export class SkillsComponent implements OnInit {
       error: (error : HttpErrorResponse) =>
         (alert(error.message))
     })
+  }
+
+  public addIdiomas(addFormIdioma: NgForm): void {
+    this.infoService.addInfo(this.pathIdiomas, addFormIdioma.value ).subscribe({
+      next: () => {
+        this.getIdiomas();
+        addFormIdioma.reset();
+      },
+      error: (error: HttpErrorResponse) => {
+        (alert(error.message));
+        addFormIdioma.reset();
+      }
+    })
+  }
+
+  public editIdiomas(idioma: Idioma): void {
+    this.infoService.editInfo(this.pathIdiomas, idioma ).subscribe({
+      next: () => this.getIdiomas(),
+
+      error: (error: HttpErrorResponse) => {
+        (alert(error.message))
+      }
+    })
+  }
+
+  public deleteIdiomas(idiomaId: number): void {
+    this.infoService.deleteInfo(this.pathIdiomas, idiomaId ).subscribe({
+      next: () => this.getIdiomas(),
+
+      error: (error: HttpErrorResponse) => {
+        (alert(error.message))
+      }
+    })
+  }
+
+  public setInfo(info : any): void {
+    this.edit = info;
   }
 
 }

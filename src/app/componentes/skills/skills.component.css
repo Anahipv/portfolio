@@ -49,6 +49,15 @@ h5, h3 {
     color: #dbd6a1;
 } 
 
+.modal-content {
+    background-color: rgba(211, 204, 109, 0.5);
+    color: #dbd6a1;
+}
+
+.btn:hover {
+    background-color: rgba(211, 204, 109, 0.5);
+}
+
 @media (max-width: 1300px){
 
     .container::before {

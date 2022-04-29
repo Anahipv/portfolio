@@ -2,20 +2,227 @@
 <div class="container">
     <div class="row">
         <div class="col-6 text-end left">
-            <h3 style="margin-bottom: 10%;">Educación</h3>
-            <div *ngFor="let edu of edus">
+            <h3 style="margin-bottom: 10%;">
+                <button class="btn left" data-bs-toggle="modal" data-bs-target="#addmodalEducacion" title="Agregar Educacion"><i class="fa-solid fa-heart-circle-plus"></i></button>
+                Educación</h3>
+            <div id="info-container" *ngFor="let edu of edus">
                 <h5>{{edu?.especialidad}}</h5>
                 <h6 class="lugar">{{edu?.institucion}}</h6> 
                 <h6>{{edu?.fechainicio}} - {{edu?.fechafin}}</h6>
+                <button (click)="setInfo(edu)" class="btn left" data-bs-toggle="modal" data-bs-target="#deletemodalEducacion" title="Eliminar Educacion"><i class="fa-regular fa-circle-xmark"></i></button>
+                <button (click)="setInfo(edu)" class="btn left" data-bs-toggle="modal" data-bs-target="#editmodalEducacion" title="Editar Educacion"><i class="fa-regular fa-pen-to-square"></i></button>
             </div>
         </div>
         <div class="col-6 text-start right">
-        <h3 style="margin-bottom: 5%;">Experiencia</h3>
+        <h3 style="margin-bottom: 5%;">
+            Experiencia <button class="btn right" data-bs-toggle="modal" data-bs-target="#addmodalExpLab" title="Agregar Experiencia"><i class="fa-solid fa-heart-circle-plus"></i></button>
+        </h3>
             <div *ngFor="let explab of explaborales">
                 <h5>{{explab?.posicion}}</h5>
                 <h6 class="lugar">{{explab?.empresa}}</h6>
                 <h6>{{explab?.fechaInicio}} - {{explab?.fechaFin}}</h6>
                 <p>{{explab?.jobDescription}}</p>
+                <button (click)="setInfo(explab)" class="btn right" data-bs-toggle="modal" data-bs-target="#deletemodalExpLab" title="Eliminar Experiencia"><i class="fa-regular fa-circle-xmark"></i></button>
+                <button (click)="setInfo(explab)" class="btn right" data-bs-toggle="modal" data-bs-target="#editmodalExpLab" title="Editar Experiencia"><i class="fa-regular fa-pen-to-square"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal add educacion -->
+    <div class="modal fade" id="addmodalEducacion" tabindex="-1" aria-labelledby="addmodalEducacionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+                <div class="modal-top">
+                    <div>
+                        <h5 class="modal-title" id="addmodalEducacionLabel" style="font-weight: bold;">(9_9)</h5>
+                    </div>
+                    <div>
+                        <button type="button" class="btn left" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form #addFormEdu="ngForm" (ngSubmit)="addEducacion(addFormEdu)">
+                        <div class="form-group">
+                            <label for="especialidad">Título: </label>
+                            <input type="text" ngModel name="especialidad" class="form-control" id="especialidad" placeholder="Qué estudiaste?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="institucion">Institucion: </label>
+                            <input type="text" ngModel name="institucion" class="form-control" id="institucion" placeholder="Donde estudiaste?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fechainicio">Fecha de inicio: </label>
+                            <input type="text" ngModel name="fechainicio" class="form-control" id="fechainicio" placeholder="Cuando empezaste?" required>
+                        </div>
+                        <div>
+                            <label for="fechafin">Fecha de fin: </label>
+                            <input type="text" ngModel name="fechafin" class="form-control" id="fechafin" placeholder="Cuando finalizaste?" required>
+                        </div>
+                        <button class="btn left" [disabled]="addFormEdu.invalid" type="submit" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-check"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal edit educacion -->
+    <div class="modal fade" id="editmodalEducacion" tabindex="-1" aria-labelledby="editmodalEducacionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+                <div class="modal-top">
+                    <div>
+                        <h5 class="modal-title" id="editmodalEducacionLabel" style="font-weight: bold;">(9_9)</h5>
+                     </div>
+                    <div>
+                        <button type="button" class="btn left" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form #editFormEdu="ngForm">
+                        <div class="form-group">
+                            <label for="especialidad">Título: </label>
+                            <input type="text" ngModel="{{edit?.especialidad}}" name="especialidad" class="form-control" id="especialidad" placeholder="Qué estudiaste?">
+                        </div>
+                        <input type="hidden" ngModel="{{edit?.id}}" name="id" class="form-control" id="id">
+                        <div class="form-group">
+                            <label for="institucion">Institucion: </label>
+                            <input type="text" ngModel="{{edit?.institucion}}" name="institucion" class="form-control" id="institucion" placeholder="Donde estudiaste?">
+                        </div>
+                        <div class="form-group">
+                            <label for="fechainicio">Fecha de inicio: </label>
+                            <input type="text" ngModel="{{edit?.fechainicio}}" name="fechainicio" class="form-control" id="fechainicio" placeholder="Cuando empezaste?">
+                        </div>
+                        <div>
+                            <label for="fechafin">Fecha de fin: </label>
+                            <input type="text" ngModel="{{edit?.fechafin}}" name="fechafin" class="form-control" id="fechafin" placeholder="Cuando finalizaste?">
+                        </div>
+                        <button (click)="editEducacion(editFormEdu.value)" class="btn left" type="submit" data-bs-dismiss="modal" aria-label="Close">Guardar cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal delete educacion -->
+    <div class="modal fade" id="deletemodalEducacion" tabindex="-1" aria-labelledby="deletemodalEducacionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+                <div class="modal-top">
+                    <div>
+                        <h5 class="modal-title" id="deletemodalEducacionLabel" style="font-weight: bold;">(9_9)</h5>
+                    </div>
+                    <div>
+                        <button type="button" class="btn left" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h1>(X.X)</h1>
+                    <h4>Estas seguro que deseas eliminar {{edit?.especialidad}}?</h4>
+                    <button (click)="deleteEducacion(edit?.id)" class="btn left" type="submit" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-heart-crack"></i> SI, ELIMINAR <i class="fa-solid fa-heart-crack"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal add experiencia -->
+    <div class="modal fade" id="addmodalExpLab" tabindex="-1" aria-labelledby="addmodalExpLabLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+                <div class="modal-top">
+                    <div>
+                        <h5 class="modal-title" id="addmodalExpLabLabel" style="font-weight: bold;">(*O*)</h5>
+                    </div>
+                    <div>
+                        <button type="button" class="btn right" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form #addFormExp="ngForm" (ngSubmit)="addExpLab(addFormExp)">
+                        <div class="form-group">
+                            <label for="posicion">Posición: </label>
+                            <input type="text" ngModel name="posicion" class="form-control" id="posicion" placeholder="Cuál era tu puesto?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Empresa: </label>
+                            <input type="text" ngModel name="empresa" class="form-control" id="empresa" placeholder="Donde trabajabas?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaInicio">Fecha de inicio: </label>
+                            <input type="text" ngModel name="fechaInicio" class="form-control" id="fechaInicio" placeholder="Cuando empezaste?" required>
+                        </div>
+                        <div>
+                            <label for="fechaFin">Fecha de fin: </label>
+                            <input type="text" ngModel name="fechaFin" class="form-control" id="fechaFin" placeholder="Cuando finalizaste?" required>
+                        </div>
+                        <div>
+                            <label for="jobDescription">Descripción: </label>
+                            <input type="text" ngModel name="jobDescription" class="form-control" id="jobDescription" placeholder="Describi tus tareas en este puesto" required>
+                        </div>
+                        <button class="btn right" [disabled]="addFormExp.invalid" type="submit" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-check"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal edit experiencia -->
+    <div class="modal fade" id="editmodalExpLab" tabindex="-1" aria-labelledby="editmodalExpLabLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+                <div class="modal-top">
+                    <div>
+                        <h5 class="modal-title" id="editmodalExpLabLabel" style="font-weight: bold;">(*O*)</h5>
+                     </div>
+                    <div>
+                        <button type="button" class="btn right" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form #editFormExpLab="ngForm">
+                        <div class="form-group">
+                            <label for="posicion">Posición: </label>
+                            <input type="text" ngModel="{{edit?.posicion}}" name="posicion" class="form-control" id="posicion" placeholder="Cuál era tu puesto?">
+                        </div>
+                        <input type="hidden" ngModel="{{edit?.id}}" name="id" class="form-control" id="id">
+                        <div class="form-group">
+                            <label for="empresa">Empresa: </label>
+                            <input type="text" ngModel="{{edit?.empresa}}" name="empresa" class="form-control" id="empresa" placeholder="Donde trabajabas?">
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaInicio">Fecha de inicio: </label>
+                            <input type="text" ngModel="{{edit?.fechaInicio}}" name="fechaInicio" class="form-control" id="fechaInicio" placeholder="Cuando empezaste?">
+                        </div>
+                        <div>
+                            <label for="fechaFin">Fecha de fin: </label>
+                            <input type="text" ngModel="{{edit?.fechaFin}}" name="fechaFin" class="form-control" id="fechaFin" placeholder="Cuando finalizaste?">
+                        </div>
+                        <div>
+                            <label for="jobDescription">Descripción: </label>
+                            <input type="text" ngModel="{{edit?.jobDescription}}" name="jobDescription" class="form-control" id="jobDescription" placeholder="Describi tus tareas en este puesto">
+                        </div>
+                        <button (click)="editExpLab(editFormExpLab.value)" class="btn right" type="submit" data-bs-dismiss="modal" aria-label="Close">Guardar cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal delete experiencia -->
+    <div class="modal fade" id="deletemodalExpLab" tabindex="-1" aria-labelledby="deletemodalExpLabLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+                <div class="modal-top">
+                    <div>
+                        <h5 class="modal-title" id="deletemodalExpLabLabel" style="font-weight: bold;">(*O*)</h5>
+                    </div>
+                    <div>
+                        <button type="button" class="btn right" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h1>(X.X)</h1>
+                    <h4>Estas seguro que deseas eliminar {{edit?.empresa}}?</h4>
+                    <button (click)="deleteExpLab(edit?.id)" class="btn right" type="submit" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-heart-crack"></i> SI, ELIMINAR <i class="fa-solid fa-heart-crack"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

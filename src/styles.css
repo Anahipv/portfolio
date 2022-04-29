@@ -17,8 +17,8 @@ input {
 
 .btn{
     color: rgb(165, 18, 50);
-    border: 2px solid rgb(165, 18, 50);
-    border-radius: 3px;
+    /* border: 2px solid rgb(165, 18, 50);
+    border-radius: 3px; */
 }
 
 .btn:hover {
@@ -27,4 +27,12 @@ input {
 
 .btn:focus, .btn:active{
     box-shadow: none;
+}
+
+div.modal-content div.modal-top {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    padding-left: 2%; 
+    padding-right: 2%;
 }

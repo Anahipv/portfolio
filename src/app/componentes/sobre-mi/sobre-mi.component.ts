@@ -11,6 +11,7 @@ import { TraerInfoService } from 'src/app/servicios/traer-info.service';
 })
 export class SobreMiComponent implements OnInit {
 
+  
   public personas!: Persona[];
   public pathComponent : String = "home";
 
@@ -31,5 +32,26 @@ export class SobreMiComponent implements OnInit {
         (alert(error.message))
     })
   }
+
+  // public personas!: Persona[];
+  // public pathComponent : String = "home";
+
+  // constructor( private infoService : TraerInfoService ) { 
+
+  // }
+
+  // ngOnInit(): any {
+  //   this.getPersonas();
+  // }
+
+  // public getPersonas(): any {
+  //   this.infoService.getInfo(this.pathComponent).subscribe({
+  //     next: (response: Persona[]) => 
+  //       (this.personas = response),
+      
+  //     error: (error : HttpErrorResponse) =>
+  //       (alert(error.message))
+  //   })
+  // }
 
 }

@@ -26,4 +26,5 @@ export class TraerInfoService {
   public deleteInfo(path : String, Id: number): Observable<void>{
     return this.http.delete<void>(`${this.apiServerUrl}/${path}/delete/${Id}`);
   }
+
 }

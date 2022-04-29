@@ -50,7 +50,15 @@ h5, h3 {
 
 .left {
     color: #26555a;
-} 
+}
+
+.modal-content {
+    background-color: rgba(151, 207, 213,0.7);
+}
+
+.btn:hover  {
+    background-color: rgba(151, 207, 213,0.7);
+}
 
 @media (max-width: 1300px){
 

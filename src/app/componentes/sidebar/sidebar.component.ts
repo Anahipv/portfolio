@@ -29,5 +29,38 @@ export class SidebarComponent implements OnInit {
         (alert(error.message))
     })
   }
+
+  // public addSkills(addFormSkill: NgForm): void {
+  //   this.infoService.addInfo(this.pathSkills, addFormSkill.value ).subscribe({
+  //     next: () => {
+  //       this.getSkills();
+  //       addFormSkill.reset();
+  //     },
+  //     error: (error: HttpErrorResponse) => {
+  //       (alert(error.message));
+  //       addFormSkill.reset();
+  //     }
+  //   })
+  // }
+
+  // public editSkills(skills: Skill): void {
+  //   this.infoService.editInfo(this.pathSkills, skills ).subscribe({
+  //     next: () => this.getSkills(),
+
+  //     error: (error: HttpErrorResponse) => {
+  //       (alert(error.message))
+  //     }
+  //   })
+  // }
+
+  // public deleteSkills(skillId: number): void {
+  //   this.infoService.deleteInfo(this.pathSkills, skillId ).subscribe({
+  //     next: () => this.getSkills(),
+
+  //     error: (error: HttpErrorResponse) => {
+  //       (alert(error.message))
+  //     }
+  //   })
+  // }
   
 }
