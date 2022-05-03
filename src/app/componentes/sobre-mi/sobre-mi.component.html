@@ -1,6 +1,42 @@
 
-<div *ngFor="let persona of personas">
+<div class="container"*ngFor="let persona of personas">
     <p>{{persona?.sobreMi}}</p>
+    <button (click)="setInfo(persona)" class="btn" data-bs-toggle="modal" data-bs-target="#editmodalSobreMi" title="Editar Descripción">
+        <i class="fa-regular fa-pen-to-square"></i>
+    </button>
 </div>
+
+
+<!-- Modal edit -->
+<div class="modal fade" id="editmodalSobreMi" tabindex="-1" aria-labelledby="editmodalSobreMiLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" >
+        <div class="modal-content">
+            <div class="modal-top">
+                <div>
+                    <h5 class="modal-title" id="editmodalSobreMiLabel" style="font-weight: bold;">(n_n)</h5>
+                </div>
+                <div>
+                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form #editFormSobreMi="ngForm">
+                    <div class="form-group">
+                        <label for="sobreMi">Sobre mi: </label>
+                        <textarea type="textarea" maxlength="500" rows="10" cols="10" ngModel="{{edit?.sobreMi}}" name="sobreMi" class="form-control inputs-edit" id="sobreMi" placeholder="Agrega una descripción sobre ti"></textarea>
+                    </div>
+                    <input type="hidden" ngModel="{{edit?.id}}" name="id" class="form-control" id="id">
+                    <input type="hidden" ngModel="{{edit?.name}}" name="name" class="form-control" id="name">
+                    <input type="hidden" ngModel="{{edit?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrl">
+                    <input type="hidden" ngModel="{{edit?.githubUrl}}" name="githubUrl" class="form-control" id="githubUrl">
+                    <input type="hidden" ngModel="{{edit?.linkedinUrl}}" name="linkedinUrl" class="form-control" id="linkedinUrl">
+                    <input type="hidden" ngModel="{{edit?.jobTitle}}" name="jobTitle" class="form-control" id="jobTitle">
+                    <button (click)="editPersona(editFormSobreMi.value)" class="btn" type="submit" data-bs-dismiss="modal" aria-label="Close">Guardar cambios</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 

@@ -1,7 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Persona } from 'src/app/interfaces/ipersona';
 import { TraerInfoService } from 'src/app/servicios/traer-info.service';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 
 @Component({
@@ -11,9 +12,10 @@ import { TraerInfoService } from 'src/app/servicios/traer-info.service';
 })
 export class SobreMiComponent implements OnInit {
 
-  
   public personas!: Persona[];
-  public pathComponent : String = "home";
+  public pathPersona : String = "home";
+  public edit!: Persona;
+
 
   constructor( private infoService : TraerInfoService ) { 
 
@@ -24,7 +26,7 @@ export class SobreMiComponent implements OnInit {
   }
 
   public getPersonas(): any {
-    this.infoService.getInfo(this.pathComponent).subscribe({
+    this.infoService.getInfo(this.pathPersona).subscribe({
       next: (response: Persona[]) => 
         (this.personas = response),
       
@@ -33,25 +35,18 @@ export class SobreMiComponent implements OnInit {
     })
   }
 
-  // public personas!: Persona[];
-  // public pathComponent : String = "home";
+  public editPersona(persona: Persona): void {
+    this.infoService.editInfo(this.pathPersona, persona ).subscribe({
+      next: () => this.getPersonas(),
 
-  // constructor( private infoService : TraerInfoService ) { 
+      error: (error: HttpErrorResponse) => {
+        (alert(error.message))
+      }
+    })
+  }
 
-  // }
-
-  // ngOnInit(): any {
-  //   this.getPersonas();
-  // }
-
-  // public getPersonas(): any {
-  //   this.infoService.getInfo(this.pathComponent).subscribe({
-  //     next: (response: Persona[]) => 
-  //       (this.personas = response),
-      
-  //     error: (error : HttpErrorResponse) =>
-  //       (alert(error.message))
-  //   })
-  // }
+  public setInfo(info : any): void {
+    this.edit = info;
+  }
 
 }

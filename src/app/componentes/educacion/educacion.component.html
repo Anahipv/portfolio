@@ -44,19 +44,19 @@
                     <form #addFormEdu="ngForm" (ngSubmit)="addEducacion(addFormEdu)">
                         <div class="form-group">
                             <label for="especialidad">Título: </label>
-                            <input type="text" ngModel name="especialidad" class="form-control" id="especialidad" placeholder="Qué estudiaste?" required>
+                            <input type="text" ngModel name="especialidad" class="form-control inputs-edit" id="especialidad" placeholder="Qué estudiaste?" required>
                         </div>
                         <div class="form-group">
                             <label for="institucion">Institucion: </label>
-                            <input type="text" ngModel name="institucion" class="form-control" id="institucion" placeholder="Donde estudiaste?" required>
+                            <input type="text" ngModel name="institucion" class="form-control inputs-edit" id="institucion" placeholder="Donde estudiaste?" required>
                         </div>
                         <div class="form-group">
                             <label for="fechainicio">Fecha de inicio: </label>
-                            <input type="text" ngModel name="fechainicio" class="form-control" id="fechainicio" placeholder="Cuando empezaste?" required>
+                            <input type="text" ngModel name="fechainicio" class="form-control inputs-edit" id="fechainicio" placeholder="Cuando empezaste?" required>
                         </div>
                         <div>
                             <label for="fechafin">Fecha de fin: </label>
-                            <input type="text" ngModel name="fechafin" class="form-control" id="fechafin" placeholder="Cuando finalizaste?" required>
+                            <input type="text" ngModel name="fechafin" class="form-control inputs-edit" id="fechafin" placeholder="Cuando finalizaste?" required>
                         </div>
                         <button class="btn left" [disabled]="addFormEdu.invalid" type="submit" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-check"></i></button>
                     </form>
@@ -80,20 +80,20 @@
                     <form #editFormEdu="ngForm">
                         <div class="form-group">
                             <label for="especialidad">Título: </label>
-                            <input type="text" ngModel="{{edit?.especialidad}}" name="especialidad" class="form-control" id="especialidad" placeholder="Qué estudiaste?">
+                            <input type="text" ngModel="{{edit?.especialidad}}" name="especialidad" class="form-control inputs-edit" id="especialidad" placeholder="Qué estudiaste?">
                         </div>
                         <input type="hidden" ngModel="{{edit?.id}}" name="id" class="form-control" id="id">
                         <div class="form-group">
                             <label for="institucion">Institucion: </label>
-                            <input type="text" ngModel="{{edit?.institucion}}" name="institucion" class="form-control" id="institucion" placeholder="Donde estudiaste?">
+                            <input type="text" ngModel="{{edit?.institucion}}" name="institucion" class="form-control inputs-edit" id="institucion" placeholder="Donde estudiaste?">
                         </div>
                         <div class="form-group">
                             <label for="fechainicio">Fecha de inicio: </label>
-                            <input type="text" ngModel="{{edit?.fechainicio}}" name="fechainicio" class="form-control" id="fechainicio" placeholder="Cuando empezaste?">
+                            <input type="text" ngModel="{{edit?.fechainicio}}" name="fechainicio" class="form-control inputs-edit" id="fechainicio" placeholder="Cuando empezaste?">
                         </div>
                         <div>
                             <label for="fechafin">Fecha de fin: </label>
-                            <input type="text" ngModel="{{edit?.fechafin}}" name="fechafin" class="form-control" id="fechafin" placeholder="Cuando finalizaste?">
+                            <input type="text" ngModel="{{edit?.fechafin}}" name="fechafin" class="form-control inputs-edit" id="fechafin" placeholder="Cuando finalizaste?">
                         </div>
                         <button (click)="editEducacion(editFormEdu.value)" class="btn left" type="submit" data-bs-dismiss="modal" aria-label="Close">Guardar cambios</button>
                     </form>
@@ -139,23 +139,23 @@
                     <form #addFormExp="ngForm" (ngSubmit)="addExpLab(addFormExp)">
                         <div class="form-group">
                             <label for="posicion">Posición: </label>
-                            <input type="text" ngModel name="posicion" class="form-control" id="posicion" placeholder="Cuál era tu puesto?" required>
+                            <input type="text" ngModel name="posicion" class="form-control inputs-edit" id="posicion" placeholder="Cuál era tu puesto?" required>
                         </div>
                         <div class="form-group">
                             <label for="empresa">Empresa: </label>
-                            <input type="text" ngModel name="empresa" class="form-control" id="empresa" placeholder="Donde trabajabas?" required>
+                            <input type="text" ngModel name="empresa" class="form-control inputs-edit" id="empresa" placeholder="Donde trabajabas?" required>
                         </div>
                         <div class="form-group">
                             <label for="fechaInicio">Fecha de inicio: </label>
-                            <input type="text" ngModel name="fechaInicio" class="form-control" id="fechaInicio" placeholder="Cuando empezaste?" required>
+                            <input type="text" ngModel name="fechaInicio" class="form-control inputs-edit" id="fechaInicio" placeholder="Cuando empezaste?" required>
                         </div>
                         <div>
                             <label for="fechaFin">Fecha de fin: </label>
-                            <input type="text" ngModel name="fechaFin" class="form-control" id="fechaFin" placeholder="Cuando finalizaste?" required>
+                            <input type="text" ngModel name="fechaFin" class="form-control inputs-edit" id="fechaFin" placeholder="Cuando finalizaste?" required>
                         </div>
                         <div>
                             <label for="jobDescription">Descripción: </label>
-                            <input type="text" ngModel name="jobDescription" class="form-control" id="jobDescription" placeholder="Describi tus tareas en este puesto" required>
+                            <input type="text" ngModel name="jobDescription" class="form-control inputs-edit" id="jobDescription" placeholder="Describi tus tareas en este puesto" required>
                         </div>
                         <button class="btn right" [disabled]="addFormExp.invalid" type="submit" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-check"></i></button>
                     </form>
@@ -179,24 +179,24 @@
                     <form #editFormExpLab="ngForm">
                         <div class="form-group">
                             <label for="posicion">Posición: </label>
-                            <input type="text" ngModel="{{edit?.posicion}}" name="posicion" class="form-control" id="posicion" placeholder="Cuál era tu puesto?">
+                            <input type="text" ngModel="{{edit?.posicion}}" name="posicion" class="form-control inputs-edit" id="posicion" placeholder="Cuál era tu puesto?">
                         </div>
                         <input type="hidden" ngModel="{{edit?.id}}" name="id" class="form-control" id="id">
                         <div class="form-group">
                             <label for="empresa">Empresa: </label>
-                            <input type="text" ngModel="{{edit?.empresa}}" name="empresa" class="form-control" id="empresa" placeholder="Donde trabajabas?">
+                            <input type="text" ngModel="{{edit?.empresa}}" name="empresa" class="form-control inputs-edit" id="empresa" placeholder="Donde trabajabas?">
                         </div>
                         <div class="form-group">
                             <label for="fechaInicio">Fecha de inicio: </label>
-                            <input type="text" ngModel="{{edit?.fechaInicio}}" name="fechaInicio" class="form-control" id="fechaInicio" placeholder="Cuando empezaste?">
+                            <input type="text" ngModel="{{edit?.fechaInicio}}" name="fechaInicio" class="form-control inputs-edit" id="fechaInicio" placeholder="Cuando empezaste?">
                         </div>
                         <div>
                             <label for="fechaFin">Fecha de fin: </label>
-                            <input type="text" ngModel="{{edit?.fechaFin}}" name="fechaFin" class="form-control" id="fechaFin" placeholder="Cuando finalizaste?">
+                            <input type="text" ngModel="{{edit?.fechaFin}}" name="fechaFin" class="form-control inputs-edit" id="fechaFin" placeholder="Cuando finalizaste?">
                         </div>
                         <div>
                             <label for="jobDescription">Descripción: </label>
-                            <input type="text" ngModel="{{edit?.jobDescription}}" name="jobDescription" class="form-control" id="jobDescription" placeholder="Describi tus tareas en este puesto">
+                            <input type="text" ngModel="{{edit?.jobDescription}}" name="jobDescription" class="form-control inputs-edit" id="jobDescription" placeholder="Describi tus tareas en este puesto">
                         </div>
                         <button (click)="editExpLab(editFormExpLab.value)" class="btn right" type="submit" data-bs-dismiss="modal" aria-label="Close">Guardar cambios</button>
                     </form>

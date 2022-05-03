@@ -1,24 +1,121 @@
+<button class="btn" data-bs-toggle="modal" data-bs-target="#addmodalProyecto" title="Agregar Proyecto">Agregar Proyectos <i class="fa-solid fa-heart-circle-plus"></i></button>
 <div class="container" >
-        <div class="proyecto" *ngFor="let proyecto of proyectos">
-            <div class="imagen">
-                <a href={{proyecto.pUrl}} title="ver en Github"><img src={{proyecto.pImage}} alt="imagen del proyecto"></a>
-            </div>
-            <div class="contenido">
-                <p class="tecnologias">{{proyecto.tecnologias}}</p>
-                <a href={{proyecto.pUrl}} title="ver en Github"><h4>{{proyecto.pName}}</h4></a>
-                <p>Objetivo: {{proyecto.descripcion}}</p> 
-            </div>
-        </div>
-</div>
-
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-4" *ngFor="let proyecto of proyectos">
+    <div class="proyecto" *ngFor="let proyecto of proyectos">
+        <div class="imagen">
             <a href={{proyecto.pUrl}} title="ver en Github"><img src={{proyecto.pImage}} alt="imagen del proyecto"></a>
+        </div>
+        <div class="contenido">
             <p class="tecnologias">{{proyecto.tecnologias}}</p>
             <a href={{proyecto.pUrl}} title="ver en Github"><h4>{{proyecto.pName}}</h4></a>
             <p>Objetivo: {{proyecto.descripcion}}</p> 
         </div>
+        <button (click)="setInfo(proyecto)" class="btn left" data-bs-toggle="modal" data-bs-target="#deletemodalProyecto" title="Eliminar Proyecto"><i class="fa-regular fa-circle-xmark"></i></button>
+        <button (click)="setInfo(proyecto)" class="btn left" data-bs-toggle="modal" data-bs-target="#editmodalProyecto" title="Editar Proyecto"><i class="fa-regular fa-pen-to-square"></i></button>
     </div>
-</div> -->
+<!-- Modal add proyecto -->
+<div class="modal fade" id="addmodalProyecto" tabindex="-1" aria-labelledby="addmodalProyectoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" >
+        <div class="modal-content">
+            <div class="modal-top">
+                <div>
+                    <h5 class="modal-title" id="addmodalProyectoLabel" style="font-weight: bold;">(O_O)</h5>
+                </div>
+                <div>
+                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form #addFormProyecto="ngForm" (ngSubmit)="addProyecto(addFormProyecto)">
+                    <div class="form-group">
+                        <label for="pName">Nombre del proyecto: </label>
+                        <input type="text" ngModel name="pName" class="form-control inputs-edit" id="pName" placeholder="Cual es el nombre de tu proyecto?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pUrl">Link: </label>
+                        <input type="text" ngModel name="pUrl" class="form-control inputs-edit" id="pUrl" placeholder="Donde verlo?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tecnologias">Tecnologias: </label>
+                        <input type="text" ngModel name="tecnologias" class="form-control inputs-edit" id="tecnologias" placeholder="Lista las tecnologias usadas separadas por una /" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Objetivo: </label>
+                        <input type="text" ngModel name="descripcion" class="form-control inputs-edit" id="descripcion" placeholder="Deja una breve descripcion" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pImage">Imagen: </label>
+                        <input type="text" ngModel name="pImage" class="form-control inputs-edit" id="pImage" placeholder="Deja una imagen representativa" required>
+                    </div>
+                    <button class="btn" [disabled]="addFormProyecto.invalid" type="submit" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-check"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal edit proyecto -->
+<div class="modal fade" id="editmodalProyecto" tabindex="-1" aria-labelledby="editmodalProyectoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" >
+        <div class="modal-content">
+            <div class="modal-top">
+                <div>
+                    <h5 class="modal-title" id="editmodalProyectoLabel" style="font-weight: bold;">(O_O)</h5>
+                    </div>
+                <div>
+                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form #editFormProyecto="ngForm">
+                    <div class="form-group">
+                        <label for="pName">Nombre del proyecto: </label>
+                        <input type="text" ngModel="{{edit?.pName}}" name="pName" class="form-control inputs-edit" id="pName" placeholder="Cual es el nombre de tu proyecto?" required>
+                    </div>
+                    <input type="hidden" ngModel="{{edit?.id}}" name="id" class="form-control" id="id">
+                    <div class="form-group">
+                        <label for="pUrl">Link: </label>
+                        <input type="text" ngModel="{{edit?.pUrl}}" name="pUrl" class="form-control inputs-edit" id="pUrl" placeholder="Donde verlo?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tecnologias">Tecnologias: </label>
+                        <input type="text" ngModel="{{edit?.tecnologias}}" name="tecnologias" class="form-control inputs-edit" id="tecnologias" placeholder="Lista las tecnologias usadas separadas por una /" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Objetivo: </label>
+                        <input type="text" ngModel="{{edit?.descripcion}}" name="descripcion" class="form-control inputs-edit" id="descripcion" placeholder="Deja una breve descripcion" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pImage">Imagen: </label>
+                        <input type="text" ngModel="{{edit?.pImage}}" name="pImage" class="form-control inputs-edit" id="pImage" placeholder="Deja una imagen representativa" required>
+                    </div>
+                    <button class="btn" (click)="editProyecto(editFormProyecto.value)" type="submit" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-check"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal delete proyecto -->
+<div class="modal fade" id="deletemodalProyecto" tabindex="-1" aria-labelledby="deletemodalProyectoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" >
+        <div class="modal-content">
+            <div class="modal-top">
+                <div>
+                    <h5 class="modal-title" id="deletemodalProyectoLabel" style="font-weight: bold;">(O_O)</h5>
+                </div>
+                <div>
+                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h1>(X.X)</h1>
+                <h4>Estas seguro que deseas eliminar {{edit?.pName}}?</h4>
+                <button (click)="deleteProyecto(edit.id)" class="btn" type="submit" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-heart-crack"></i> SI, ELIMINAR <i class="fa-solid fa-heart-crack"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
 

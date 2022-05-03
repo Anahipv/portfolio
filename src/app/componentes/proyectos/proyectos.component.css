@@ -27,10 +27,11 @@ img {
 } 
 
 .container {
-    display: flex;
-    height: 100%;
+    /* display: flex; */
+    flex-direction: row;
+    /* height: 100%;
     text-align: center;
-    justify-content: space-around;
+    justify-content: space-around; */
     align-items: center;
     color: rgb(1, 10, 4);
 }
@@ -39,28 +40,6 @@ img {
     font-weight: bold;
 }
 
-/* .container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    text-align: center;
-    justify-content: center;
-    color: rgb(1, 10, 4);
-    background-color: aqua;
-}
-
-.row {
-    background-color: rgba(112, 182, 132, 0.5);
-}
-
-.col-4 {
-    padding-top: 2%;
-    border: 2px solid;
-}
-
-.col-4:hover {
-    background-color: rgba(182, 211, 190, 0.5);
-} */
 
 @media (max-width: 1300px){
 
