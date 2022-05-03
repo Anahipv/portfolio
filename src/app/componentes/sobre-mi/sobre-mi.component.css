@@ -1,9 +1,9 @@
-div {
-    display: flex;
+.container {
+    /* display: flex;
     flex-direction: column;
     height: 100%;
     text-align: center;
-    justify-content: center;
+    justify-content: center; */
     padding-left: 15%;
     padding-right: 15%;
 }
@@ -14,16 +14,29 @@ p {
     font-weight: bold;
 }
 
+.modal-content {
+    background-color: rgba(193, 179, 214, 0.5);
+    color: #c1b3d6;
+}
+
+.btn {
+    color: #c1b3d6;;
+}
+
+.btn:hover {
+    background-color: rgba(193, 179, 214, 0.5);
+}
+
 @media (max-width: 1300px){
 
-    div {
+    .container-about  {
         margin-top: 5%;
     }
 }
 
 @media (max-width: 800px) {
 
-    div {
+    .container-about  {
         margin-top: 15%;
     }
 

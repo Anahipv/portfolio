@@ -11,14 +11,23 @@ a {
     text-decoration: none;
 }
 
-input {
+.inputs-edit {
     caret-color: rgb(165, 18, 50);
+    background-color: rgba(24, 23, 23, 0.438);
+    color: white;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
 }
 
 .btn{
     color: rgb(165, 18, 50);
-    /* border: 2px solid rgb(165, 18, 50);
-    border-radius: 3px; */
 }
 
 .btn:hover {
@@ -30,7 +39,7 @@ input {
 }
 
 div.modal-content div.modal-top {
-    display: flex; 
+    display: flex;
     flex-direction: row; 
     justify-content: space-between; 
     padding-left: 2%; 

@@ -37,7 +37,7 @@
                     <form #addFormSkill="ngForm" (ngSubmit)="addSkills(addFormSkill)">
                         <div class="form-group">
                             <label for="tecnologia">Skill: </label>
-                            <input type="text" ngModel name="tecnologia" class="form-control" id="tecnologia" placeholder="Agrega tu skill" required>
+                            <input type="text" ngModel name="tecnologia" class="form-control inputs-edit" id="tecnologia" placeholder="Agrega tu skill" required>
                         </div>
                         <button class="btn left" [disabled]="addFormSkill.invalid" type="submit" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-check"></i></button>
                     </form>
@@ -61,7 +61,7 @@
                     <form #editFormSkill="ngForm">
                         <div class="form-group">
                             <label for="tecnologia">Skill: </label>
-                            <input type="text" ngModel="{{edit?.tecnologia}}" name="tecnologia" class="form-control" id="tecnologia" placeholder="Agrega tu skill">
+                            <input type="text" ngModel="{{edit?.tecnologia}}" name="tecnologia" class="form-control inputs-edit" id="tecnologia" placeholder="Agrega tu skill">
                         </div>
                         <input type="hidden" ngModel="{{edit?.id}}" name="id" class="form-control" id="id">
                         <button (click)="editSkills(editFormSkill.value)" class="btn left" type="submit" data-bs-dismiss="modal" aria-label="Close">Guardar cambios</button>
@@ -108,11 +108,11 @@
                     <form #addFormIdioma="ngForm" (ngSubmit)="addIdiomas(addFormIdioma)">
                         <div class="form-group">
                             <label for="idioma">Idioma: </label>
-                            <input type="text" ngModel name="idioma" class="form-control" id="idioma" placeholder="Agrega un idioma" required>
+                            <input type="text" ngModel name="idioma" class="form-control inputs-edit" id="idioma" placeholder="Agrega un idioma" required>
                         </div>
                         <div class="form-group">
                             <label for="nivel">Nivel: </label>
-                            <input type="text" ngModel name="nivel" class="form-control" id="nivel" placeholder="Especifica tu nivel" required>
+                            <input type="text" ngModel name="nivel" class="form-control inputs-edit" id="nivel" placeholder="Especifica tu nivel" required>
                         </div>
                         <button class="btn right" [disabled]="addFormIdioma.invalid" type="submit" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-check"></i></button>
                     </form>
@@ -136,11 +136,11 @@
                     <form #editFormIdioma="ngForm">
                         <div class="form-group">
                             <label for="idioma">Idioma: </label>
-                            <input type="text" ngModel="{{edit?.idioma}}" name="idioma" class="form-control" id="idioma" placeholder="Agrega un idioma">
+                            <input type="text" ngModel="{{edit?.idioma}}" name="idioma" class="form-control inputs-edit" id="idioma" placeholder="Agrega un idioma">
                         </div>
                         <div class="form-group">
                             <label for="nivel">Nivel: </label>
-                            <input type="text" ngModel="{{edit?.nivel}}" name="nivel" class="form-control" id="nivel" placeholder="Especifica tu nivel">
+                            <input type="text" ngModel="{{edit?.nivel}}" name="nivel" class="form-control inputs-edit" id="nivel" placeholder="Especifica tu nivel">
                         </div>
                         <input type="hidden" ngModel="{{edit?.id}}" name="id" class="form-control" id="id">
                         <button (click)="editIdiomas(editFormIdioma.value)" class="btn right" type="submit" data-bs-dismiss="modal" aria-label="Close">Guardar cambios</button>

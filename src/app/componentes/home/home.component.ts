@@ -10,7 +10,7 @@ import { TraerInfoService } from 'src/app/servicios/traer-info.service';
 })
 export class HomeComponent implements OnInit {
   public personas!: Persona[];
-  public pathComponent : String = "home";
+  public pathPersona: String = "home";
 
   constructor( private infoService : TraerInfoService ) { 
 
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   public getPersonas(): any {
-    this.infoService.getInfo(this.pathComponent).subscribe({
+    this.infoService.getInfo(this.pathPersona).subscribe({
       next: (response: Persona[]) => 
         (this.personas = response),
       

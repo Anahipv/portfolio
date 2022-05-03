@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Persona } from 'src/app/interfaces/ipersona';
 import { TraerInfoService } from 'src/app/servicios/traer-info.service';
 
@@ -10,9 +11,11 @@ import { TraerInfoService } from 'src/app/servicios/traer-info.service';
 })
 export class SidebarComponent implements OnInit {
   public personas!: Persona[];
-  public pathComponent : String = "home";
+  public pathPersona : String = "home";
+  public edit! : Persona;
+  public router!: Router;
 
-  constructor( private infoService : TraerInfoService ) { 
+  constructor( private infoService : TraerInfoService, private ngZone : NgZone ) { 
 
   }
 
@@ -21,7 +24,7 @@ export class SidebarComponent implements OnInit {
   }
 
   public getPersonas(): any {
-    this.infoService.getInfo(this.pathComponent).subscribe({
+    this.infoService.getInfo(this.pathPersona).subscribe({
       next: (response: Persona[]) => 
         (this.personas = response),
       
@@ -30,37 +33,24 @@ export class SidebarComponent implements OnInit {
     })
   }
 
-  // public addSkills(addFormSkill: NgForm): void {
-  //   this.infoService.addInfo(this.pathSkills, addFormSkill.value ).subscribe({
-  //     next: () => {
-  //       this.getSkills();
-  //       addFormSkill.reset();
-  //     },
-  //     error: (error: HttpErrorResponse) => {
-  //       (alert(error.message));
-  //       addFormSkill.reset();
-  //     }
-  //   })
-  // }
+  public editPersona(persona: Persona): void {
+    this.infoService.editInfo(this.pathPersona, persona ).subscribe({
+      next: () => this.getPersonas(),
 
-  // public editSkills(skills: Skill): void {
-  //   this.infoService.editInfo(this.pathSkills, skills ).subscribe({
-  //     next: () => this.getSkills(),
+      error: (error: HttpErrorResponse) => {
+        (alert(error.message))
+      }
+    })
+  }
 
-  //     error: (error: HttpErrorResponse) => {
-  //       (alert(error.message))
-  //     }
-  //   })
-  // }
+  public setInfo(info : any): void {
+    this.edit = info;
+  }
 
-  // public deleteSkills(skillId: number): void {
-  //   this.infoService.deleteInfo(this.pathSkills, skillId ).subscribe({
-  //     next: () => this.getSkills(),
-
-  //     error: (error: HttpErrorResponse) => {
-  //       (alert(error.message))
-  //     }
-  //   })
+  // public reload() {
+  //   this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  //   this.router.onSameUrlNavigation = 'reload';
+  //   this.ngZone.run(() => {this.router.navigate([this.router.url])})
   // }
   
 }
