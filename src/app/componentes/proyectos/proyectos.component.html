@@ -1,4 +1,4 @@
-<button class="btn" data-bs-toggle="modal" data-bs-target="#addmodalProyecto" title="Agregar Proyecto">Agregar Proyectos <i class="fa-solid fa-heart-circle-plus"></i></button>
+<button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#addmodalProyecto" title="Agregar Proyecto">Agregar Proyectos <i class="fa-solid fa-heart-circle-plus"></i></button>
 <div class="container" >
     <div class="proyecto" *ngFor="let proyecto of proyectos">
         <div class="imagen">
@@ -8,9 +8,11 @@
             <p class="tecnologias">{{proyecto.tecnologias}}</p>
             <a href={{proyecto.pUrl}} title="ver en Github"><h4>{{proyecto.pName}}</h4></a>
             <p>Objetivo: {{proyecto.descripcion}}</p> 
+            <button (click)="setInfo(proyecto)" class="btn" data-bs-toggle="modal" data-bs-target="#deletemodalProyecto" title="Eliminar Proyecto"><i class="fa-regular fa-circle-xmark"></i></button>
+            <button (click)="setInfo(proyecto)" class="btn" data-bs-toggle="modal" data-bs-target="#editmodalProyecto" title="Editar Proyecto"><i class="fa-regular fa-pen-to-square"></i></button>
         </div>
-        <button (click)="setInfo(proyecto)" class="btn left" data-bs-toggle="modal" data-bs-target="#deletemodalProyecto" title="Eliminar Proyecto"><i class="fa-regular fa-circle-xmark"></i></button>
-        <button (click)="setInfo(proyecto)" class="btn left" data-bs-toggle="modal" data-bs-target="#editmodalProyecto" title="Editar Proyecto"><i class="fa-regular fa-pen-to-square"></i></button>
+        <!-- <button (click)="setInfo(proyecto)" class="btn" data-bs-toggle="modal" data-bs-target="#deletemodalProyecto" title="Eliminar Proyecto"><i class="fa-regular fa-circle-xmark"></i></button>
+        <button (click)="setInfo(proyecto)" class="btn" data-bs-toggle="modal" data-bs-target="#editmodalProyecto" title="Editar Proyecto"><i class="fa-regular fa-pen-to-square"></i></button> -->
     </div>
 <!-- Modal add proyecto -->
 <div class="modal fade" id="addmodalProyecto" tabindex="-1" aria-labelledby="addmodalProyectoLabel" aria-hidden="true">

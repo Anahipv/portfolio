@@ -29,14 +29,14 @@ p {
 
 @media (max-width: 1300px){
 
-    .container-about  {
+    .container{
         margin-top: 5%;
     }
 }
 
 @media (max-width: 800px) {
 
-    .container-about  {
+    .container{
         margin-top: 15%;
     }
 
