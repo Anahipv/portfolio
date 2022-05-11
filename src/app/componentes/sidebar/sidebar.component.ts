@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, NgZone, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Persona } from 'src/app/interfaces/ipersona';
+import { LoginService } from 'src/app/servicios/login.service';
 import { TraerInfoService } from 'src/app/servicios/traer-info.service';
 
 @Component({
@@ -13,13 +13,16 @@ export class SidebarComponent implements OnInit {
   public personas!: Persona[];
   public pathPersona : String = "home";
   public edit! : Persona;
-  public router!: Router;
+  public isUserLogged: Boolean = false;
 
-  constructor( private infoService : TraerInfoService, private ngZone : NgZone ) { 
+  constructor( 
+    private infoService : TraerInfoService, 
+    private loginService : LoginService) { 
 
   }
 
   ngOnInit(): any {
+    this.isUserLogged = this.loginService.isUserLogged();
     this.getPersonas();
   }
 
@@ -47,10 +50,10 @@ export class SidebarComponent implements OnInit {
     this.edit = info;
   }
 
-  // public reload() {
-  //   this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-  //   this.router.onSameUrlNavigation = 'reload';
-  //   this.ngZone.run(() => {this.router.navigate([this.router.url])})
-  // }
+  public logOut():void {
+    this.loginService.logout();
+    this.isUserLogged = false;
+    window.location.reload();
+  }
   
 }

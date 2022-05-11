@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Idioma } from 'src/app/interfaces/iidioma';
 import { Skill } from 'src/app/interfaces/iskill';
+import { LoginService } from 'src/app/servicios/login.service';
 import { TraerInfoService } from 'src/app/servicios/traer-info.service';
 
 @Component({
@@ -16,12 +17,16 @@ export class SkillsComponent implements OnInit {
   public pathSkills : String = "skills";
   public pathIdiomas : String  = "idioma";
   public edit : any;
+  public isUserLogged: Boolean = false;
 
-  constructor( private infoService : TraerInfoService ) { 
+  constructor( 
+    private infoService : TraerInfoService,
+    private loginService : LoginService ) { 
 
   }
 
   ngOnInit(): any {
+    this.isUserLogged = this.loginService.isUserLogged();
     this.getSkills();
     this.getIdiomas();
   }

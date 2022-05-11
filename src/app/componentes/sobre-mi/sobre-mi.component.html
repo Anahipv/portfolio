@@ -1,7 +1,7 @@
 
 <div class="container"*ngFor="let persona of personas">
     <p>{{persona?.sobreMi}}</p>
-    <button (click)="setInfo(persona)" class="btn" data-bs-toggle="modal" data-bs-target="#editmodalSobreMi" title="Editar Descripción">
+    <button (click)="setInfo(persona)" *ngIf="isUserLogged" class="btn" data-bs-toggle="modal" data-bs-target="#editmodalSobreMi" title="Editar Descripción">
         <i class="fa-regular fa-pen-to-square"></i>
     </button>
 </div>

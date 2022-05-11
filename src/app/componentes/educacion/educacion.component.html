@@ -3,27 +3,28 @@
     <div class="row">
         <div class="col-6 text-end left">
             <h3 style="margin-bottom: 10%;">
-                <button class="btn left" data-bs-toggle="modal" data-bs-target="#addmodalEducacion" title="Agregar Educacion"><i class="fa-solid fa-heart-circle-plus"></i></button>
+                <button *ngIf="isUserLogged" class="btn left" data-bs-toggle="modal" data-bs-target="#addmodalEducacion" title="Agregar Educacion"><i class="fa-solid fa-heart-circle-plus"></i></button>
                 Educación</h3>
             <div id="info-container" *ngFor="let edu of edus">
                 <h5>{{edu?.especialidad}}</h5>
                 <h6 class="lugar">{{edu?.institucion}}</h6> 
                 <h6>{{edu?.fechainicio}} - {{edu?.fechafin}}</h6>
-                <button (click)="setInfo(edu)" class="btn left" data-bs-toggle="modal" data-bs-target="#deletemodalEducacion" title="Eliminar Educacion"><i class="fa-regular fa-circle-xmark"></i></button>
-                <button (click)="setInfo(edu)" class="btn left" data-bs-toggle="modal" data-bs-target="#editmodalEducacion" title="Editar Educacion"><i class="fa-regular fa-pen-to-square"></i></button>
+                <button (click)="setInfo(edu)" *ngIf="isUserLogged" class="btn left" data-bs-toggle="modal" data-bs-target="#deletemodalEducacion" title="Eliminar Educacion"><i class="fa-regular fa-circle-xmark"></i></button>
+                <button (click)="setInfo(edu)" *ngIf="isUserLogged" class="btn left" data-bs-toggle="modal" data-bs-target="#editmodalEducacion" title="Editar Educacion"><i class="fa-regular fa-pen-to-square"></i></button>
             </div>
         </div>
         <div class="col-6 text-start right">
         <h3 style="margin-bottom: 5%;">
-            Experiencia <button class="btn right" data-bs-toggle="modal" data-bs-target="#addmodalExpLab" title="Agregar Experiencia"><i class="fa-solid fa-heart-circle-plus"></i></button>
+            Experiencia 
+            <button *ngIf="isUserLogged" class="btn right" data-bs-toggle="modal" data-bs-target="#addmodalExpLab" title="Agregar Experiencia"><i class="fa-solid fa-heart-circle-plus"></i></button>
         </h3>
             <div *ngFor="let explab of explaborales">
                 <h5>{{explab?.posicion}}</h5>
                 <h6 class="lugar">{{explab?.empresa}}</h6>
                 <h6>{{explab?.fechaInicio}} - {{explab?.fechaFin}}</h6>
                 <p>{{explab?.jobDescription}}</p>
-                <button (click)="setInfo(explab)" class="btn right" data-bs-toggle="modal" data-bs-target="#deletemodalExpLab" title="Eliminar Experiencia"><i class="fa-regular fa-circle-xmark"></i></button>
-                <button (click)="setInfo(explab)" class="btn right" data-bs-toggle="modal" data-bs-target="#editmodalExpLab" title="Editar Experiencia"><i class="fa-regular fa-pen-to-square"></i></button>
+                <button (click)="setInfo(explab)" *ngIf="isUserLogged" class="btn right" data-bs-toggle="modal" data-bs-target="#deletemodalExpLab" title="Eliminar Experiencia"><i class="fa-regular fa-circle-xmark"></i></button>
+                <button (click)="setInfo(explab)"*ngIf="isUserLogged"  class="btn right" data-bs-toggle="modal" data-bs-target="#editmodalExpLab" title="Editar Experiencia"><i class="fa-regular fa-pen-to-square"></i></button>
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Proyecto } from 'src/app/interfaces/iproyecto';
+import { LoginService } from 'src/app/servicios/login.service';
 import { TraerInfoService } from 'src/app/servicios/traer-info.service';
 
 @Component({
@@ -13,12 +14,16 @@ export class ProyectosComponent implements OnInit {
   public proyectos!: Proyecto[];
   public pathProyecto : String = "proyectos";
   public edit!: Proyecto;
+  public isUserLogged: Boolean = false;
 
-  constructor( private infoService : TraerInfoService ) { 
+  constructor( 
+    private infoService : TraerInfoService,
+    private loginService : LoginService ) { 
 
   }
 
   ngOnInit(): any {
+    this.isUserLogged = this.loginService.isUserLogged();
     this.getProyectos();
   }
 

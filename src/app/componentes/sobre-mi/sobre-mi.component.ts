@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Persona } from 'src/app/interfaces/ipersona';
+import { LoginService } from 'src/app/servicios/login.service';
 import { TraerInfoService } from 'src/app/servicios/traer-info.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 
@@ -15,13 +16,17 @@ export class SobreMiComponent implements OnInit {
   public personas!: Persona[];
   public pathPersona : String = "home";
   public edit!: Persona;
+  public isUserLogged: Boolean = false;
 
 
-  constructor( private infoService : TraerInfoService ) { 
+  constructor( 
+    private infoService : TraerInfoService,
+    private loginService : LoginService ) { 
 
   }
 
   ngOnInit(): any {
+    this.isUserLogged = this.loginService.isUserLogged();
     this.getPersonas();
   }
 

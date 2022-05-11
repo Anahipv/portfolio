@@ -10,7 +10,7 @@
     <div>
         <img src={{persona?.imageUrl}} width="60%" height="30%" alt="Ilustracion sobre mi" id="ilustracion">
         <h2>{{persona?.jobTitle}}</h2>
-        <button (click)="setInfo(persona)" class="btn" data-bs-toggle="modal" data-bs-target="#editmodalPersona" title="Editar perfil">
+        <button (click)="setInfo(persona)" *ngIf="isUserLogged" class="btn" id="btn-editar" data-bs-toggle="modal" data-bs-target="#editmodalPersona" title="Editar perfil">
             <i class="fa-regular fa-pen-to-square"></i>
         </button>
     </div>
@@ -41,25 +41,8 @@
                 </a>
             </div>
         </div>
-        <button class="btn" data-bs-toggle="modal" data-bs-target="#modalLogin" title="Inicia sesion para editar"><i class="fa-solid fa-wand-magic-sparkles"></i></button>
-        <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" >
-                <div class="modal-content">
-                    <div class="modal-top">
-                        <div>
-                            <h5 class="modal-title" id="modalLoginLabel" style="font-weight: bold;">\(o^w^o)/</h5>
-                        </div>
-                        <div>
-                            <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-heart-circle-xmark"></i></button>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <app-login></app-login>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>  
+            <button *ngIf="!isUserLogged" class="btn" routerLink="/login" data-bs-toggle="modal" data-bs-target="#modalLogin" title="Inicia sesion para editar"><i class="fa-solid fa-wand-magic-sparkles"></i></button>
+            <button class="btn" *ngIf="isUserLogged" (click)="logOut()" data-bs-toggle="modal" data-bs-target="#modalLogin" title="Cerrar sesion"><i class="fa-solid fa-right-from-bracket"></i></button>
 </div>
 
 <!-- Modal edit -->

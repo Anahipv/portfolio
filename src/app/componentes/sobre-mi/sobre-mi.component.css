@@ -1,9 +1,4 @@
 .container {
-    /* display: flex;
-    flex-direction: column;
-    height: 100%;
-    text-align: center;
-    justify-content: center; */
     padding-left: 15%;
     padding-right: 15%;
 }
@@ -17,6 +12,7 @@ p {
 .modal-content {
     background-color: rgba(193, 179, 214, 0.5);
     color: #c1b3d6;
+    text-align: center;
 }
 
 .btn {

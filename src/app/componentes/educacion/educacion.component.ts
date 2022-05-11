@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Educacion } from 'src/app/interfaces/ieducacion';
 import { ExpLaboral } from 'src/app/interfaces/iexplaboral';
+import { LoginService } from 'src/app/servicios/login.service';
 import { TraerInfoService } from 'src/app/servicios/traer-info.service';
 
 @Component({
@@ -16,12 +17,16 @@ export class EducacionComponent implements OnInit {
   public pathEdu : String = "educacion";
   public pathExp : String  = "explaboral";
   public edit : any;
+  public isUserLogged: Boolean = false;
 
-  constructor( private infoService : TraerInfoService ) { 
+  constructor( 
+    private infoService : TraerInfoService,
+    private loginService : LoginService ) { 
 
   }
 
   ngOnInit(): any {
+    this.isUserLogged = this.loginService.isUserLogged();
     this.getEducaciones();
     this.getExpLaborales();
   }

@@ -2,21 +2,21 @@
 <div class="container">
     <div class="row">
         <div class="col-6 left">
-            <h3><button class="btn left" data-bs-toggle="modal" data-bs-target="#addmodalSkills" title="Agregar Skill"><i class="fa-solid fa-heart-circle-plus"></i></button>
+            <h3><button class="btn left" *ngIf="isUserLogged" data-bs-toggle="modal" data-bs-target="#addmodalSkills" title="Agregar Skill"><i class="fa-solid fa-heart-circle-plus"></i></button>
                 Skills</h3>
             <div *ngFor="let skill of skills">
                 <h5>{{skill?.tecnologia}}</h5>
-                <button (click)="setInfo(skill)" class="btn left" data-bs-toggle="modal" data-bs-target="#deletemodalSkills" title="Eliminar Skill"><i class="fa-regular fa-circle-xmark"></i></button>
-                <button (click)="setInfo(skill)" class="btn left" data-bs-toggle="modal" data-bs-target="#editmodalSkills" title="Editar Skill"><i class="fa-regular fa-pen-to-square"></i></button>
+                <button (click)="setInfo(skill)" *ngIf="isUserLogged" class="btn left" data-bs-toggle="modal" data-bs-target="#deletemodalSkills" title="Eliminar Skill"><i class="fa-regular fa-circle-xmark"></i></button>
+                <button (click)="setInfo(skill)" *ngIf="isUserLogged" class="btn left" data-bs-toggle="modal" data-bs-target="#editmodalSkills" title="Editar Skill"><i class="fa-regular fa-pen-to-square"></i></button>
             </div>
         </div>
         <div class="col-6 right">
-            <h3>Idiomas <button class="btn right" data-bs-toggle="modal" data-bs-target="#addmodalIdiomas" title="Agregar Idioma"><i class="fa-solid fa-heart-circle-plus"></i></button></h3>
+            <h3>Idiomas <button class="btn right" *ngIf="isUserLogged" data-bs-toggle="modal" data-bs-target="#addmodalIdiomas" title="Agregar Idioma"><i class="fa-solid fa-heart-circle-plus"></i></button></h3>
             <div *ngFor="let idioma of idiomas">
                 <h5>{{idioma?.idioma}}</h5>
                 <h6>-- {{idioma?.nivel}} --</h6>
-                <button (click)="setInfo(idioma)" class="btn right" data-bs-toggle="modal" data-bs-target="#deletemodalIdiomas" title="Eliminar Idioma"><i class="fa-regular fa-circle-xmark"></i></button>
-                <button (click)="setInfo(idioma)" class="btn right" data-bs-toggle="modal" data-bs-target="#editmodalIdiomas" title="Editar Idioma"><i class="fa-regular fa-pen-to-square"></i></button>
+                <button (click)="setInfo(idioma)" *ngIf="isUserLogged" class="btn right" data-bs-toggle="modal" data-bs-target="#deletemodalIdiomas" title="Eliminar Idioma"><i class="fa-regular fa-circle-xmark"></i></button>
+                <button (click)="setInfo(idioma)" *ngIf="isUserLogged" class="btn right" data-bs-toggle="modal" data-bs-target="#editmodalIdiomas" title="Editar Idioma"><i class="fa-regular fa-pen-to-square"></i></button>
             </div>
         </div>
     </div>

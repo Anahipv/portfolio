@@ -12,7 +12,7 @@ import { SkillsComponent } from './componentes/skills/skills.component';
 import { SidebarComponent } from './componentes/sidebar/sidebar.component';
 import { LoginComponent } from './componentes/login/login.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TraerInfoService } from './servicios/traer-info.service';
 
 
@@ -31,7 +31,8 @@ import { TraerInfoService } from './servicios/traer-info.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     TraerInfoService
